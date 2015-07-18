@@ -89,6 +89,15 @@ QWaylandWindow::WindowType QWaylandEglWindow::windowType() const
     return QWaylandWindow::Egl;
 }
 
+void *QWaylandEglWindow::nativeResource(const QByteArray &resourceString)
+{
+    QByteArray lowerCaseResource = resourceString.toLower();
+    if (lowerCaseResource == "wl_egl_window") {
+        return m_waylandEglWindow;
+    }
+    return Q_NULLPTR;
+}
+
 void QWaylandEglWindow::setGeometry(const QRect &rect)
 {
     QWaylandWindow::setGeometry(rect);

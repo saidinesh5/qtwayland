@@ -57,6 +57,7 @@ public:
     QWaylandEglWindow(QWindow *window);
     ~QWaylandEglWindow();
     WindowType windowType() const;
+    void *nativeResource(const QByteArray &resourceString) Q_DECL_OVERRIDE;
 
     void updateSurface(bool create);
     virtual void setGeometry(const QRect &rect);
